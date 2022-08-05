@@ -1,6 +1,7 @@
 package com.cg.ofr.serviceimpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,22 +18,29 @@ public class FlatService implements IFlatService{
 	private IFlatRepository flatRepository;
 	
 	
+	public Flat addFlat(Flat flat) {
+        flatRepository.saveAndFlush(flat);
+        return flat;
+        }
+
+    public Flat updateFlat(Integer flatId,Flat flat1) throws FlatNotFoundException{
+        Optional<Flat> flat=flatRepository.findById(flatId);
+        if(flat.isPresent()) {
+            Flat f1=flat.get();
+            // Flat newFlat = new Flat();
+      f1.setCost(flat1.getCost());
+      f1.setAvailability(flat1.getAvailability());
+
+      f1=flatRepository.save(f1);
+        return f1;
+        }
+        return null;
+
+    }
 	
-	public List<Flat> addFlat(Flat flat) {
-		flatRepository.saveAndFlush(flat);
-		return flatRepository.findAll();
-	}
 	
-	public List<Flat> updateFlat(Integer flatId, Double cost) throws FlatNotFoundException{
-		if(!flatRepository.existsById(flatId)) {
-			throw new FlatNotFoundException();
-	}
-	Flat flat=flatRepository.findById(flatId).get();
-	  flat.setCost(cost);
-		flatRepository.flush();
-		return flatRepository.findAll();
-		
-		}
+	
+	
 	public List<Flat> deleteFlat(Integer flatId) throws FlatNotFoundException{ 
 		if(!flatRepository.existsById(flatId)) {
 			throw new FlatNotFoundException();

@@ -7,20 +7,19 @@ import com.cg.ofr.entities.FlatBooking;
 import com.cg.ofr.exception.FlatBookingNotFoundException;
 
 public interface IFlatBookingService {
+	
+	public FlatBooking addFlatBooking(FlatBooking flatbooking);
 
-	public String addFlatBooking(FlatBooking flat);
-	
-	public List<FlatBooking> viewAllFlatBooking();
-	
-	public List<FlatBooking> updateFlatBooking(Integer bookingNo, String location) throws
-	  FlatBookingNotFoundException;
-	 
-	public List<FlatBooking> deleteFlatBooking(Integer bookingNo) throws
-	  FlatBookingNotFoundException;
-	 
-	public FlatBooking viewFlatBooking(Integer bookingNo) throws
-	  FlatBookingNotFoundException;
-	 
+    public List<FlatBooking> getAllFlatBooking();
+
+    public FlatBooking updateFlatBooking(Integer bookingNo,FlatBooking flatbooking1) throws
+      FlatBookingNotFoundException;
+
+    public List<FlatBooking> deleteFlatBooking(Integer bookingNo) throws
+      FlatBookingNotFoundException;
+
+    public FlatBooking getFlatBooking(Integer bookingNo) throws
+      FlatBookingNotFoundException;
 	 
 	
 }

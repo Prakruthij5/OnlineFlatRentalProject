@@ -1,6 +1,7 @@
 package com.cg.ofr.entities;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,11 +14,10 @@ import javax.validation.constraints.NotNull;
 @Table(name="flat_address")
 public class FlatAddress {
 	
-	
-	  @Id
-	  @GeneratedValue(strategy=GenerationType.AUTO)
-	 
-	private int id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="flataddress_id")
+	private int flataddress_id;
 	
 	@Column(name="street")
 	@NotEmpty
@@ -51,81 +51,58 @@ public class FlatAddress {
 		this.country = country;
 			}
 
-
-
-	public int getId() {
-		return id;
+			
+	public int getFlataddress_id() { 
+		return flataddress_id; 
+		
 	}
-
-
+			 
 	public String getStreet() {
 		return street;
 	}
-
-
 
 	public void setStreet(String street) {
 		this.street = street;
 	}
 
-
-
 	public String getCity() {
 		return city;
 	}
-
-
 
 	public void setCity(String city) {
 		this.city = city;
 	}
 
-
-
 	public String getState() {
 		return state;
 	}
-
-
 
 	public void setState(String state) {
 		this.state = state;
 	}
 
-
-
 	public int getPin() {
 		return pin;
 	}
-
-
 
 	public void setPin(int pin) {
 		this.pin = pin;
 	}
 
-
-
 	public String getCountry() {
 		return country;
 	}
-
-
 
 	public void setCountry(String country) {
 		this.country = country;
 	}
 
-
-
-	
-
-
-
 	@Override
 	public String toString() {
-		return "FlatAddress [id=" + id + ", street=" + street + ", city=" + city + ", state=" + state + ", pin=" + pin
-				+ ", country=" + country +  "]";
+		return "FlatAddress [ street=" + street + ", city=" + city + ", state="
+				+ state + ", pin=" + pin + ", country=" + country + "]";
 	}
-	
+
+
+
 }

@@ -7,9 +7,9 @@ import com.cg.ofr.exception.FlatNotFoundException;
 
 public interface IFlatService {
 
-	public List<Flat> addFlat(Flat flat);
+	public Flat addFlat(Flat flat);
 	
-	public List<Flat> updateFlat(Integer flatId, Double cost) throws FlatNotFoundException;
+	 public Flat updateFlat(Integer flatId,Flat flat1) throws FlatNotFoundException;
 	
 	public List<Flat> deleteFlat(Integer flatId) throws FlatNotFoundException;
 	

@@ -5,6 +5,20 @@ import com.cg.ofr.entities.User;
 
 
 public interface IUserRepository extends JpaRepository<User,Integer>{
+
+	//Object findByUserNameAndPassword(String userName, String password);
+
+	
+
+	//public User findByUserNameAndPassword(User user);
+
+	public User findByUserNameAndPassword(String userName, String password);
+
+	
+
+	
+
+	//public User findByUserNameAndPassword(User user);
 	
 	
 

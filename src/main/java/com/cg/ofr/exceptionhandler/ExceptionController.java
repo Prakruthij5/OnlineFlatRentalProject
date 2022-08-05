@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import com.cg.ofr.exception.AdminNotFoundException;
 import com.cg.ofr.exception.FlatBookingNotFoundException;
 import com.cg.ofr.exception.FlatNotFoundException;
 import com.cg.ofr.exception.LandlordNotFoundException;
@@ -74,6 +75,10 @@ public class ExceptionController extends ResponseEntityExceptionHandler{
 	        return new ResponseEntity("User Not Found",HttpStatus.NOT_FOUND);
 	    }
 
+	    @ExceptionHandler(value=AdminNotFoundException.class)
+	    public ResponseEntity<Object> adminCodeExceptionHandler12(Exception ex) {
+	        return new ResponseEntity("Admin Not Found",HttpStatus.NOT_FOUND);
+	    }
 	   
 	}
 	

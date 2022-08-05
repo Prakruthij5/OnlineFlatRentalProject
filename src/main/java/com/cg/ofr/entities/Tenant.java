@@ -2,13 +2,16 @@ package com.cg.ofr.entities;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 @Entity
+@Table(name="tenant")
 public class Tenant  {
 	
 	@Id
@@ -16,24 +19,27 @@ public class Tenant  {
 	private int tenant_id;
 	
 	@Column(name="age")
-	private int age;
+	private int tenant_age;
 	
+	@Column
+	private String tenantName;
 	
-	  @OneToOne(cascade=CascadeType.MERGE)
-	  @JoinTable(name="tenant_flat_address")
-	  private FlatAddress flataddress;
 	 
 	@OneToOne
 	private User user;
 	
 	public Tenant() {}
+	
 
-	public Tenant( int age, FlatAddress flataddress, User user) {
+	public Tenant( int tenant_age, String tenantName, User user) {
 		super();
-		this.age = age;
-		this.flataddress = flataddress;
+	
+		this.tenant_age = tenant_age;
+		this.tenantName = tenantName;
+		
 		this.user = user;
 	}
+
 
 	public int getTenant_id() {
 		return tenant_id;
@@ -41,21 +47,23 @@ public class Tenant  {
 
 	
 
-	public int getAge() {
-		return age;
+	public int getTenant_age() {
+		return tenant_age;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setTenant_age(int tenant_age) {
+		this.tenant_age = tenant_age;
 	}
 
-	public FlatAddress getFlataddress() {
-		return flataddress;
+	public String getTenantName() {
+		return tenantName;
 	}
 
-	public void setFlataddress(FlatAddress flataddress) {
-		this.flataddress = flataddress;
+	public void setTenantName(String tenantName) {
+		this.tenantName = tenantName;
 	}
+
+	
 
 	public User getUser() {
 		return user;
@@ -65,10 +73,14 @@ public class Tenant  {
 		this.user = user;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Tenant [tenant_id=" + tenant_id + ", age=" + age + ", flataddress=" + flataddress + ", user=" + user
-				+ "]";
+		return "Tenant [tenant_id=" + tenant_id + ", tenant_age=" + tenant_age + ", tenantName=" + tenantName
+				+ ", user=" + user + "]";
 	}
+
 	
-}
+	
+
+	}

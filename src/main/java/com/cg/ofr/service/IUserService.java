@@ -7,17 +7,21 @@ import com.cg.ofr.exception.UserNotFoundException;
 
 public interface IUserService {
 
-	public String addUser(User user);
-	
-	public List<User> updateUser(Integer userId,String name) throws UserNotFoundException;
-	
-	public List<User> updatePassword(Integer userId,String newpass) throws UserNotFoundException;
-	
-	public User viewUser(int userId) throws UserNotFoundException;
-	
-	public List<User> viewAllUser();
-	
-	public List<User> validateUser(String userName,String password) throws UserNotFoundException;
-	
-	 public List<User> removeUser(Integer userId);
+	public User addUser(User user);
+
+    public User updateUser(Integer userId,User user1) throws UserNotFoundException;
+
+    public User viewUser(int userId) throws UserNotFoundException;
+
+    public List<User> viewAllUser();
+
+    public String LogOut(String message);
+ 
+    public User deleteUser(int userId) throws UserNotFoundException;
+
+	public User userLogin(String userName, String password)throws UserNotFoundException;
+
+    //public User userLogin (String userName ,String password);
+
+	//public User userLogin(User user);
 }

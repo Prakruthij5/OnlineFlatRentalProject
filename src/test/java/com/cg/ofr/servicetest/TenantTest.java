@@ -43,7 +43,7 @@ class TenantServiceTest {
         tenantList1=new ArrayList<>();
 
 
-        tenant.setAge(45);
+        tenant.setTenant_age(45);
         tenantList.add(tenant);
 
 

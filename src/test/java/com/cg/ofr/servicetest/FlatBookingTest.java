@@ -52,7 +52,7 @@ class FlatBookingTest {
 		
 		flatbooking.setBookingFromDate(LocalDate.of(2020, 8, 9));
 		flatbooking.setBookingToDate(LocalDate.of(2020, 7, 6));
-		flatbooking.setLocation("Hyderabad");
+		
 		flatbookingList1.add(flatbooking);
 		
 	}

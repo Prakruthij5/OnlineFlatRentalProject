@@ -41,19 +41,18 @@ public class FlatBooking {
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private LocalDate bookingToDate;
 	
-	@Column
-	private String location;
+	
 
 	public FlatBooking() {}
 	public FlatBooking( Flat flat, Tenant tenant,  LocalDate bookingFromDate,
-			LocalDate bookingToDate, String location) {
+			LocalDate bookingToDate) {
 		super();
 		
 		this.flat = flat;
 		this.tenant = tenant;
 		this.bookingFromDate = bookingFromDate;
 		this.bookingToDate = bookingToDate;
-		this.location = location;
+		//this.location = location;
 	}
 	public Integer getBookingNo() {
 		return bookingNo;
@@ -83,17 +82,12 @@ public class FlatBooking {
 	public void setBookingToDate(LocalDate bookingToDate) {
 		this.bookingToDate = bookingToDate;
 	}
-	public String getLocation() {
-		return location;
-	}
-	public void setLocation(String location) {
-		this.location = location;
-	}
+	
 	
 	@Override
 	public String toString() {
 		return "FlatBooking [bookingNo=" + bookingNo + ", flat=" + flat + ", tenant=" + tenant + ", bookingFromDate="
-				+ bookingFromDate + ", bookingToDate=" + bookingToDate + ", location=" + location + "]";
+				+ bookingFromDate + ", bookingToDate=" + bookingToDate + "]";
 	}
 	
 	

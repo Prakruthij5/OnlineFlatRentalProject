@@ -2,6 +2,7 @@ package com.cg.ofr.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +34,7 @@ public class Landlord {
 	private int landlordAge;
 	
 	  
-	  @OneToMany
+	  @OneToMany(cascade=CascadeType.ALL)
 	  @JoinTable(name="landlordFlat")
 	  private List<Flat> flatList;
 	 
